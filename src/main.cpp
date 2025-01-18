@@ -1,18 +1,22 @@
 #include <Arduino.h>
+#include <alarmClock.hpp>
 
-// put function declarations here:
-int myFunction(int, int);
+#define CLK 6
+#define DIO 7
 
-void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+AlarmClock alarmClock(CLK,DIO);
+
+
+uint8_t data[4];
+
+void setup()
+{
+  alarmClock.setTime(ClockTime(10,30));
+  alarmClock.update();
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
+void loop()
+{
+
 }
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
-}
